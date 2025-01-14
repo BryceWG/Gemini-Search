@@ -115,6 +115,12 @@ export function registerRoutes(app: Express): Server {
 
       // Create a new chat session with search capability
       const chat = model.startChat({
+        history: [
+          {
+            role: "user",
+            parts: [{text: "你是一个专业的AI助手。请用中文回答所有问题。在回答时要准确、专业、友好。如果不确定的内容,要明确告知用户。"}]
+          }
+        ],
         tools: [
           {
             // @ts-ignore - google_search is a valid tool but not typed in the SDK yet
