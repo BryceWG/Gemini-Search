@@ -13,10 +13,10 @@ const genAI = new GoogleGenerativeAI(env.GOOGLE_API_KEY);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash-exp",
   generationConfig: {
-    temperature: 0.9,
+    temperature: 0.5,
     topP: 1,
     topK: 1,
-    maxOutputTokens: 2048,
+    maxOutputTokens: 4096,
   },
 });
 
@@ -118,7 +118,7 @@ export function registerRoutes(app: Express): Server {
         history: [
           {
             role: "user",
-            parts: [{text: "你是一个专业的AI助手。请用中文回答所有问题。在回答时要准确、专业、友好。如果不确定的内容,要明确告知用户。"}]
+            parts: [{text: "I want you to act as a Solr Search Engine. You will be able to understand the command and use the best search keywords to get information from the internet, and reply your answer in Chinese to the user."}]
           }
         ],
         tools: [
