@@ -118,7 +118,7 @@ export function registerRoutes(app: Express): Server {
         history: [
           {
             role: "user",
-            parts: [{text: "I want you to act as a Solr Search Engine. You will be able to understand the command and use the best search keywords to get information from the internet, and reply your answer in Chinese to the user."}]
+            parts: [{text: "I want you to act as a Solr Search Engine. You will be able to understand the command and use the best search keywords to get information from the internet, and reply your final answer in Chinese to the user without any explanation."}]
           }
         ],
         tools: [
