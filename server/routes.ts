@@ -12,6 +12,7 @@ const env = setupEnvironment();
 const genAI = new GoogleGenerativeAI(env.GOOGLE_API_KEY);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash-exp",
+  systemInstruction: "I want you to act as a Solr Search Engine. You will be able to understand the command and use the best search keywords to get information from the internet, and reply your final answer in Chinese to the user without any explanation.",
   generationConfig: {
     temperature: 0.5,
     topP: 1,
@@ -115,12 +116,6 @@ export function registerRoutes(app: Express): Server {
 
       // Create a new chat session with search capability
       const chat = model.startChat({
-        history: [
-          {
-            role: "user",
-            parts: [{text: "I want you to act as a Solr Search Engine. You will be able to understand the command and use the best search keywords to get information from the internet, and reply your final answer in Chinese to the user without any explanation."}]
-          }
-        ],
         tools: [
           {
             // @ts-ignore - google_search is a valid tool but not typed in the SDK yet
