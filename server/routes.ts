@@ -12,7 +12,7 @@ const env = setupEnvironment();
 const genAI = new GoogleGenerativeAI(env.GOOGLE_API_KEY);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash-exp",
-  systemInstruction: "I want you to act as a Solr Search Engine. You will be able to understand the command and use the best search keywords to get information from the internet, and reply your final answer in Chinese to the user without any explanation.",
+  systemInstruction: "I want you to act as a Solr Search Engine. You will be able to understand the command and use the best search keywords in multiple languages to get information from the internet, and reply your clear and concise final answer in Chinese to the user without introducing about the search process and yourself.",
   generationConfig: {
     temperature: 0.5,
     topP: 1,
